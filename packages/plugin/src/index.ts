@@ -449,7 +449,11 @@ export default function typedocApiPlugin(
 										// Since this isn't a doc/blog page, we can get
 										// away with it being a partial!
 										isMDXPartial: () => true,
-										markdownConfig: context.siteConfig.markdown,
+									markdownConfig: {
+										...context.siteConfig.markdown,
+										// Ensure parseFrontMatter is available
+										parseFrontMatter: context.siteConfig.markdown.parseFrontMatter,
+									},
 									} satisfies MDXLoaderOptions,
 								},
 								{
