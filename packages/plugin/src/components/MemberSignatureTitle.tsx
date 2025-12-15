@@ -26,7 +26,7 @@ export function MemberSignatureTitle({ useArrow, hideName, sig }: MemberSignatur
 				</>
 			) : null}
 
-			<TypeParametersGeneric params={sig.typeParameter} />
+			<TypeParametersGeneric params={sig.typeParameters} />
 
 			<span className="tsd-signature-symbol">(</span>
 

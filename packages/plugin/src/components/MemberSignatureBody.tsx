@@ -25,7 +25,7 @@ export function hasSigBody(
 	return (
 		(!hideSources && hasSources(sig)) ||
 		hasComment(sig.comment) ||
-		(sig.typeParameter && sig.typeParameter.length > 0) ||
+		(sig.typeParameters && sig.typeParameters.length > 0) ||
 		(!minimal && sig.parameters && sig.parameters.length > 0) ||
 		(!minimal && sig.type)
 	);
@@ -57,7 +57,7 @@ const HIDE_TAGS = ['@returns', '@param'];
 // eslint-disable-next-line complexity
 export function MemberSignatureBody({ hideSources, sig }: MemberSignatureBodyProps) {
 	const minimal = useMinimalLayout();
-	const showTypes = sig.typeParameter && sig.typeParameter.length > 0;
+	const showTypes = sig.typeParameters && sig.typeParameters.length > 0;
 	const showParams = !minimal && sig.parameters && sig.parameters.length > 0;
 	const showReturn = !minimal && sig.type;
 
@@ -76,7 +76,7 @@ export function MemberSignatureBody({ hideSources, sig }: MemberSignatureBodyPro
 			{showTypes && (
 				<>
 					<h4 className="tsd-type-parameters-title">Type parameters</h4>
-					<TypeParameters params={sig.typeParameter} />
+					<TypeParameters params={sig.typeParameters} />
 				</>
 			)}
 

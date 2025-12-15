@@ -43,22 +43,22 @@
     "@docusaurus/core": "^3.5.0",
     "@docusaurus/mdx-loader": "^3.5.0",
     "react": ">=18.0.0",
-    "typescript": "^5.0.0"
+    "typescript": ">=5.0.0"
   },
   "dependencies": {
     "@docusaurus/plugin-content-docs": "^3.5.0",
     "@docusaurus/types": "^3.5.0",
     "@docusaurus/utils": "^3.5.0",
     "@vscode/codicons": "^0.0.36",
-    "marked": "^9.1.6",
+    "marked": "^17.0.1",
     "marked-smartypants": "^1.1.5",
-    "typedoc": "^0.25.7"
+    "typedoc": "^0.28.15"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.5.0",
     "@docusaurus/tsconfig": "^3.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "typescript": "^5.5.4"
+    "typescript": "^5.9.3"
   }
 }

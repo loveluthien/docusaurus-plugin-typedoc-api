@@ -113,7 +113,7 @@ export function createReflectionMap(
 	// eslint-disable-next-line complexity
 	items.forEach((item) => {
 		// Add @reference categories to reflection.
-		const referenceCategories: Record<string, { title: string; children: number[] }> = {};
+		const referenceCategories: Record<string, { title: string; children: TypeDoc.ReflectionId[] }> = {};
 		for (const tag of item.comment?.blockTags ?? []) {
 			if (tag.tag === '@reference' && tag.content.length >= 2 && tag.content[0].kind === 'text') {
 				const categoryName = tag.content[0].text.trim();
@@ -372,9 +372,11 @@ function buildSourceFileNameMap(
 	const map: Record<string, boolean> = {};
 	const cwd = process.cwd();
 
-	Object.values(project.symbolIdMap).forEach((symbol) => {
-		// absolute
-		map[path.normalize(path.join(cwd, symbol.sourceFileName))] = true;
+	Object.values(project.symbolIdMap ?? {}).forEach((symbol) => {
+		// Use packagePath from the symbol (relative path)
+		if (symbol.packagePath) {
+			map[path.normalize(path.join(cwd, symbol.packagePath))] = true;
+		}
 	});
 
 	modChildren.forEach((child) => {
