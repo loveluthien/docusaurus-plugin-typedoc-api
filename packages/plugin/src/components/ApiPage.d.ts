@@ -6,6 +6,7 @@ export interface ApiPageProps extends DocRootProps {
     options: ApiOptions;
     packages: PackageReflectionGroup[];
 }
-declare function ApiPage({ options, packages, ...props }: ApiPageProps): import("react/jsx-runtime").JSX.Element;
+declare function ApiPageComponent({ options, packages, ...props }: ApiPageProps): import("react/jsx-runtime").JSX.Element;
+declare const ApiPage: import("react").MemoExoticComponent<typeof ApiPageComponent>;
 export default ApiPage;
 //# sourceMappingURL=ApiPage.d.ts.map

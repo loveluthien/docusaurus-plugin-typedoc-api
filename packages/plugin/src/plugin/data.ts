@@ -257,31 +257,37 @@ function sortReflectionGroups(reflections: TSDDeclarationReflection[]) {
 	});
 }
 
-function sourceFileMatchesEntryPoint(
-	sourceFile: string,
-	entryPoint: string,
-	{ deep, single }: { deep: boolean; single: boolean },
-): boolean {
-	// Single package
-	if (single) {
+function matchesSinglePackageShallow(sourceFile: string, entryPoint: string): boolean {
 		return (
-			// src/index.ts === src/index.ts
-			(!deep && sourceFile === entryPoint) ||
-			// index.ts === src/index.ts
-			(!deep && sourceFile === path.basename(entryPoint)) ||
-			// some/deep/file.ts === ...
-			deep
+				sourceFile === entryPoint ||
+				sourceFile === path.basename(entryPoint) ||
+				sourceFile.endsWith(entryPoint) ||
+				entryPoint.endsWith(sourceFile)
 		);
-	}
+}
 
-	// Multiple packages
-	return (
-		// packages/foo/src/index.ts === packages/foo/src/index.ts
-		// foo/src/index.ts ~ packages/foo/src/index.ts
-		(!deep && (sourceFile === entryPoint || entryPoint.endsWith(sourceFile))) ||
-		// packages/foo/src/some/deep/file.ts === packages/foo/src/
-		(deep && sourceFile.startsWith(entryPoint))
-	);
+function matchesMultiplePackagesShallow(sourceFile: string, entryPoint: string): boolean {
+		return (
+				sourceFile === entryPoint ||
+				entryPoint.endsWith(sourceFile) ||
+				sourceFile.endsWith(entryPoint)
+		);
+}
+
+function sourceFileMatchesEntryPoint(
+		sourceFile: string,
+		entryPoint: string,
+		{ deep, single }: { deep: boolean; single: boolean },
+): boolean {
+		// Single package
+		if (single) {
+				return !deep ? matchesSinglePackageShallow(sourceFile, entryPoint) : deep;
+		}
+
+		// Multiple packages
+		return !deep 
+				? matchesMultiplePackagesShallow(sourceFile, entryPoint)
+				: sourceFile.startsWith(entryPoint);
 }
 
 function modContainsEntryPoint(
@@ -375,7 +381,7 @@ function buildSourceFileNameMap(
 	Object.values(project.symbolIdMap ?? {}).forEach((symbol) => {
 		// Use packagePath from the symbol (relative path)
 		if (symbol.packagePath) {
-			map[path.normalize(path.join(cwd, symbol.packagePath))] = true;
+			map[path.normalize(path.join(cwd, String(symbol.packagePath)))] = true;
 		}
 	});
 
