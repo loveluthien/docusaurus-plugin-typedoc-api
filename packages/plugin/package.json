@@ -1,6 +1,6 @@
 {
   "name": "docusaurus-plugin-typedoc-api",
-  "version": "4.4.0",
+  "version": "4.5.0",
   "description": "Docusaurus plugin that provides source code API documentation powered by TypeDoc. ",
   "keywords": [
     "docusaurus",
@@ -10,9 +10,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:milesj/docusaurus-plugin-typedoc-api.git"
+    "url": "git@github.com:loveluthien/docusaurus-plugin-typedoc-api.git"
   },
-  "author": "Miles Johnson",
+  "author": "Miles Johnson, Kuan-Chou Hou",
   "license": "MIT",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -24,10 +24,6 @@
   ],
   "engines": {
     "node": ">=16.12.0"
-  },
-  "funding": {
-    "type": "ko-fi",
-    "url": "https://ko-fi.com/milesjohnson"
   },
   "packemon": {
     "format": "lib",
