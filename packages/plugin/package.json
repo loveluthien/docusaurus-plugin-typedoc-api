@@ -40,23 +40,23 @@
     ]
   },
   "peerDependencies": {
-    "@docusaurus/core": "^3.9.0",
-    "@docusaurus/mdx-loader": "^3.9.0",
+    "@docusaurus/core": "^3.9.2",
+    "@docusaurus/mdx-loader": "^3.9.2",
     "react": ">=18.0.0",
     "typescript": ">=5.0.0"
   },
   "dependencies": {
-    "@docusaurus/plugin-content-docs": "^3.9.0",
-    "@docusaurus/types": "^3.9.0",
-    "@docusaurus/utils": "^3.9.0",
+    "@docusaurus/plugin-content-docs": "^3.9.2",
+    "@docusaurus/types": "^3.9.2",
+    "@docusaurus/utils": "^3.9.2",
     "@vscode/codicons": "^0.0.36",
     "marked": "^17.0.1",
     "marked-smartypants": "^1.1.5",
     "typedoc": "^0.28.15"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^3.9.0",
-    "@docusaurus/tsconfig": "^3.9.0",
+    "@docusaurus/module-type-aliases": "^3.9.2",
+    "@docusaurus/tsconfig": "^3.9.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^5.9.3"
