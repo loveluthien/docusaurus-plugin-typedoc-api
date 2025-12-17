@@ -37,3 +37,6 @@ tmp/
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+
+#Pack
+*.tgz
