@@ -134,23 +134,23 @@ export function Parameter({ param }: ParameterProps) {
 				</li>
 			)}
 
-			{param.indexSignature && (
+			{param.indexSignatures && param.indexSignatures.length > 0 && (
 				<li className="tsd-parameter-index-signature">
 					<h5>
 						<span className="tsd-signature-symbol">[</span>
-						{param.indexSignature.parameters?.map((p) => (
+						{param.indexSignatures[0].parameters?.map((p) => (
 							<span key={p.id}>
 								{p.flags?.isRest && <span className="tsd-signature-symbol">...</span>}
 								{p.name} <Type type={p.type} />
 							</span>
 						))}
 						<span className="tsd-signature-symbol">]: </span>
-						<Type type={param.indexSignature.type} />
+						<Type type={param.indexSignatures[0].type} />
 					</h5>
 
-					<Comment comment={param.indexSignature.comment} />
+					<Comment comment={param.indexSignatures[0].comment} />
 
-					<Parameter param={extractDeclarationFromType(param.indexSignature)} />
+					<Parameter param={extractDeclarationFromType(param.indexSignatures[0])} />
 				</li>
 			)}
 

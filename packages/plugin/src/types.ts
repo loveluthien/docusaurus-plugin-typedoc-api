@@ -1,4 +1,4 @@
-import type { JSONOutput, TypeDocOptions } from 'typedoc';
+import type { JSONOutput, ReflectionId, TypeDocOptions } from 'typedoc';
 import type { MDXPlugin } from '@docusaurus/mdx-loader';
 import type {
 	PropSidebarItem,
@@ -121,7 +121,7 @@ export interface PackageReflectionGroup {
 }
 
 export interface ApiMetadata {
-	id: number;
+	id: ReflectionId;
 	name: string;
 	permalink: string;
 	previousId?: number;

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.5.0 - 2025-12-16
+
+#### 🚀 Updates
+
+- Support Typedoc==0.28, Typescript==5.9, and Docusaurus==3.9 ([#1](https://github.com/loveluthien/docusaurus-plugin-typedoc-api/issues/1))
+
+
+
+
+
 ## 4.4.0 - 2024-09-08
 
 #### 🚀 Updates

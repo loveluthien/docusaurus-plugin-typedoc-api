@@ -1,5 +1,12 @@
 {
-  "extends": "@docusaurus/tsconfig",
+  "extends": "../../tsconfig.options.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true
+  },
   "include": [
     "src/**/*",
     "types/**/*"

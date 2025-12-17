@@ -2,7 +2,7 @@
 
 import '@vscode/codicons/dist/codicon.css';
 import './styles.css';
-import { useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import DocRoot, { type Props as DocRootProps } from '@theme/DocRoot';
 import type {
 	ApiOptions,
@@ -26,7 +26,7 @@ function deepMapReflections(
 		if (key === 'id') {
 			const hasType = 'type' in data;
 
-			// Dont overwrite with reference nodes
+			// Don't overwrite with reference nodes
 			if (!hasType || (hasType && (data as unknown as { type: string }).type !== 'reference')) {
 				map[Number(value)] = data as TSDDeclarationReflection;
 
@@ -65,7 +65,7 @@ export interface ApiPageProps extends DocRootProps {
 	packages: PackageReflectionGroup[];
 }
 
-function ApiPage({ options, packages, ...props }: ApiPageProps) {
+function ApiPageComponent({ options, packages, ...props }: ApiPageProps) {
 	const value = useMemo(
 		() => ({ options, reflections: mapPackagesToReflection(packages) }),
 		[options, packages],
@@ -79,5 +79,8 @@ function ApiPage({ options, packages, ...props }: ApiPageProps) {
 		</ApiDataContext.Provider>
 	);
 }
+
+const ApiPage = memo(ApiPageComponent);
+ApiPage.displayName = 'ApiPage';
 
 export default ApiPage;

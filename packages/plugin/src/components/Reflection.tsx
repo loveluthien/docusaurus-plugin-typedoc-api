@@ -26,16 +26,16 @@ export function Reflection({ reflection }: ReflectionProps) {
 			{isCommentWithModifiers(reflection.comment) && <CommentBadges comment={reflection.comment} />}
 			{hasComment(reflection.comment) && <Comment root comment={reflection.comment} />}
 
-			{'typeParameter' in reflection &&
-				reflection.typeParameter &&
-				reflection.typeParameter.length > 0 &&
-				// Class
-				reflection.kind !== 128 && (
-					<section className="tsd-panel">
-						<h3 className="tsd-panel-header">Type parameters</h3>
+{'typeParameters' in reflection &&
+			reflection.typeParameters &&
+			reflection.typeParameters.length > 0 &&
+			// Class
+			reflection.kind !== 128 && (
+				<section className="tsd-panel">
+					<h3 className="tsd-panel-header">Type parameters</h3>
 
-						<div className="tsd-panel-content">
-							<TypeParameters params={reflection.typeParameter} />
+					<div className="tsd-panel-content">
+						<TypeParameters params={reflection.typeParameters as any} />
 						</div>
 					</section>
 				)}
@@ -99,28 +99,28 @@ export function Reflection({ reflection }: ReflectionProps) {
 				</section>
 			)}
 
-			{'indexSignature' in reflection && reflection.indexSignature && (
-				<section className="tsd-panel">
-					<h3 className="tsd-panel-header tsd-before-signature">Indexable</h3>
+{'indexSignatures' in reflection && reflection.indexSignatures && reflection.indexSignatures.length > 0 && (
+			<section className="tsd-panel">
+				<h3 className="tsd-panel-header tsd-before-signature">Indexable</h3>
 
-					<div className="tsd-panel-content">
-						<div className="tsd-signature tsd-kind-icon">
-							<Icon reflection={reflection.indexSignature} />
-							<span className="tsd-signature-symbol">[</span>
-							{reflection.indexSignature.parameters?.map((param) => (
-								<span key={param.id}>
-									{param.name}
-									{': '}
-									<Type type={param.type} />
-								</span>
-							))}
-							<span className="tsd-signature-symbol">]: </span>
-							<Type type={reflection.indexSignature.type} />
-						</div>
+				<div className="tsd-panel-content">
+					<div className="tsd-signature tsd-kind-icon">
+						<Icon reflection={reflection.indexSignatures[0]} />
+						<span className="tsd-signature-symbol">[</span>
+						{reflection.indexSignatures[0].parameters?.map((param) => (
+							<span key={param.id}>
+								{param.name}
+								{': '}
+								<Type type={param.type} />
+							</span>
+						))}
+						<span className="tsd-signature-symbol">]: </span>
+						<Type type={reflection.indexSignatures[0].type} />
+					</div>
 
-						<Comment comment={reflection.indexSignature.comment} />
+					<Comment comment={reflection.indexSignatures[0].comment} />
 
-						<Parameter param={extractDeclarationFromType(reflection.indexSignature.type)} />
+					<Parameter param={extractDeclarationFromType(reflection.indexSignatures[0].type)} />
 					</div>
 				</section>
 			)}

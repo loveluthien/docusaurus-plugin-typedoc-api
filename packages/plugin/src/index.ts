@@ -1,7 +1,7 @@
 /* eslint-disable no-console, sort-keys */
 
-import fs from 'fs';
-import path from 'path';
+import * as fs from 'fs';
+import * as path from 'path';
 import type { Options as MDXLoaderOptions } from '@docusaurus/mdx-loader';
 import type { PropVersionDocs, PropVersionMetadata } from '@docusaurus/plugin-content-docs';
 import { CURRENT_VERSION_NAME } from '@docusaurus/plugin-content-docs/server';
@@ -449,7 +449,11 @@ export default function typedocApiPlugin(
 										// Since this isn't a doc/blog page, we can get
 										// away with it being a partial!
 										isMDXPartial: () => true,
-										markdownConfig: context.siteConfig.markdown,
+									markdownConfig: {
+										...context.siteConfig.markdown,
+										// Ensure parseFrontMatter is available
+										parseFrontMatter: context.siteConfig.markdown.parseFrontMatter,
+									},
 									} satisfies MDXLoaderOptions,
 								},
 								{
