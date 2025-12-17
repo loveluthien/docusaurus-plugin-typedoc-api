@@ -2,15 +2,15 @@
   "private": true,
   "name": "docusaurus-plugin-typedoc-api-root",
   "scripts": {
-    "check": "yarn run type && yarn run lint",
+    "check": "npm run type && npm run lint",
     "clean": "packemon clean --cwd packages/plugin",
-    "docs": "yarn run build && cd website && yarn run start",
+    "docs": "npm run build && cd website && npm run start",
     "build": "packemon build --addEngines --cwd packages/plugin",
     "pack": "rimraf packages/plugin/tsconfig.lib.tsbuildinfo && packemon pack --addEngines --declaration --cwd packages/plugin",
     "format": "prettier --write .",
     "lint": "eslint --cache --color --fix --ext .ts,.tsx ./packages/*/{src,tests} ./website/src",
     "type": "tsc --build",
-    "release": "yarn run pack && yarn run check && lerna-release"
+    "release": "npm run pack && npm run check && lerna-release"
   },
   "devDependencies": {
     "@moonrepo/dev": "^2.0.1",
@@ -31,5 +31,5 @@
     "packages/*",
     "website"
   ],
-  "packageManager": "yarn@4.0.1"
+  "packageManager": "npm@10.9.3"
 }
