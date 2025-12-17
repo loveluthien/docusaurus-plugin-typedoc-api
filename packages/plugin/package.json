@@ -23,7 +23,7 @@
     "styles.css"
   ],
   "engines": {
-    "node": ">=16.12.0"
+    "node": ">=18.12.0"
   },
   "packemon": {
     "format": "lib",
@@ -31,8 +31,7 @@
     "externals": [
       "@theme/*",
       "@docusaurus/*",
-      "@vscode/*",
-      "css$"
+      "@vscode/*"
     ]
   },
   "peerDependencies": {
