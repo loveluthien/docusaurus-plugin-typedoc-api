@@ -1,6 +1,6 @@
 {
   "name": "@loveluthien/docusaurus-plugin-typedoc-api",
-  "version": "4.5.0",
+  "version": "4.5.1",
   "description": "Docusaurus plugin that provides source code API documentation powered by TypeDoc. ",
   "keywords": [
     "docusaurus",
@@ -35,25 +35,25 @@
     ]
   },
   "peerDependencies": {
-    "@docusaurus/core": "^3.9.2",
-    "@docusaurus/mdx-loader": "^3.9.2",
+    "@docusaurus/core": "^3.10.1",
+    "@docusaurus/mdx-loader": "^3.10.1",
     "react": ">=18.0.0",
     "typescript": ">=5.0.0"
   },
   "dependencies": {
-    "@docusaurus/plugin-content-docs": "^3.9.2",
-    "@docusaurus/types": "^3.9.2",
-    "@docusaurus/utils": "^3.9.2",
-    "@vscode/codicons": "^0.0.36",
-    "marked": "^17.0.1",
-    "marked-smartypants": "^1.1.5",
-    "typedoc": "^0.28.15"
+    "@docusaurus/plugin-content-docs": "^3.10.1",
+    "@docusaurus/types": "^3.10.1",
+    "@docusaurus/utils": "^3.10.1",
+    "@vscode/codicons": "^0.0.45",
+    "marked": "^18.0.4",
+    "marked-smartypants": "^1.1.12",
+    "typedoc": "^0.28.19"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^3.9.2",
-    "@docusaurus/tsconfig": "^3.9.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "^5.9.3"
+    "@docusaurus/module-type-aliases": "^3.10.1",
+    "@docusaurus/tsconfig": "^3.10.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "typescript": "^6.0.3"
   }
 }
