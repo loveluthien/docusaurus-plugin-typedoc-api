@@ -266,7 +266,7 @@ const config: Config = {
 	],
 	plugins: [
 		[
-			'docusaurus-plugin-typedoc-api',
+			'@loveluthien/docusaurus-plugin-typedoc-api',
 			{
 				exclude: ['**/themes/*', '**/website/*'],
 				minimal: false,

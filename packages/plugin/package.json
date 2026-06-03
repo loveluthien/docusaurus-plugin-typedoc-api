@@ -17,23 +17,12 @@
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "files": [
-    "assets/**/*",
-    "lib/**/*",
-    "src/**/*",
-    "styles.css"
+    "lib/**/*"
   ],
   "engines": {
     "node": ">=18.12.0"
   },
-  "packemon": {
-    "format": "lib",
-    "platform": "node",
-    "externals": [
-      "@theme/*",
-      "@docusaurus/*",
-      "@vscode/*"
-    ]
-  },
+
   "peerDependencies": {
     "@docusaurus/core": "^3.10.1",
     "@docusaurus/mdx-loader": "^3.10.1",

@@ -8,6 +8,5 @@
     "jsx": "preserve",
     "moduleResolution": "bundler",
     "module": "esnext",
-    "ignoreDeprecations": "6.0"
   }
 }
