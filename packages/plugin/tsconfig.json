@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig.options.json",
   "compilerOptions": {
+    "rootDir": "src",
     "jsx": "react-jsx",
     "moduleResolution": "bundler",
     "esModuleInterop": true,
@@ -9,7 +10,6 @@
     "verbatimModuleSyntax": false
   },
   "include": [
-    "src/**/*",
-    "types/**/*"
+    "src/**/*"
   ]
 }

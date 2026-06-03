@@ -36,14 +36,17 @@ export function getPackageSlug(
 	}
 
 	// packages/foo -> foo
-	const slug = pkgConfig.packageSlug ?? path.basename(pkgConfig.packagePath);
+	let slug = pkgConfig.packageSlug ?? path.basename(pkgConfig.packagePath);
+	if (slug === '.') {
+		slug = '';
+	}
 
 	// bar/baz -> bar-baz
 	const importName = importPath.replaceAll('\\', '-');
 
 	if (importName === 'index') {
-		return slug;
+		return slug || '.';
 	}
 
-	return `${slug}-${importName}`;
+	return slug ? `${slug}-${importName}` : importName;
 }
