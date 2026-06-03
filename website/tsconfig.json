@@ -9,5 +9,8 @@
     "src/**/*",
     "types/**/*"
   ],
-  "references": []
+  "references": [],
+  "compilerOptions": {
+    "ignoreDeprecations": "6.0"
+  }
 }
