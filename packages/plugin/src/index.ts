@@ -1,7 +1,7 @@
-/* eslint-disable no-console, sort-keys */
+/* eslint-disable sort-keys */
 
-import * as fs from 'fs';
-import * as path from 'path';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 import type { Options as MDXLoaderOptions } from '@docusaurus/mdx-loader';
 import type { PropVersionDocs, PropVersionMetadata } from '@docusaurus/plugin-content-docs';
 import { CURRENT_VERSION_NAME } from '@docusaurus/plugin-content-docs/server';
@@ -164,9 +164,9 @@ export default function typedocApiPlugin(
 							options.changelogName,
 						);
 
-						// eslint-disable-next-line no-param-reassign
+						 
 						cfg.packageName = packageJson.name;
-						// eslint-disable-next-line no-param-reassign
+						 
 						cfg.packageVersion = packageJson.version;
 					});
 

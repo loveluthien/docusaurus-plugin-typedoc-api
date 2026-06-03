@@ -1,4 +1,4 @@
-/* eslint-disable no-param-reassign */
+ 
 
 import '@vscode/codicons/dist/codicon.css';
 import './styles.css';

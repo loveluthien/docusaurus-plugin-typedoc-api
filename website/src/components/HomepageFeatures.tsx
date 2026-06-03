@@ -31,7 +31,7 @@ const FeatureList = [
 	},
 ];
 
-function Feature({ title, description }: { title: string; description: JSX.Element }) {
+function Feature({ title, description }: { title: string; description: React.JSX.Element }) {
 	return (
 		<div className={clsx('col col--4')}>
 			<div className="text--center padding-horiz--md">

@@ -80,6 +80,6 @@ export function replaceLinkTokens(
 	docsBaseUrl: string,
 ) {
 	return markdown
-		.replace(/{@(link|linkcode|linkplain|apilink)\s+([^}]+?)}/gi, replaceApiLinks(reflections))
-		.replace(/{@doclink\s+([^}]+?)}/gi, replaceDocLinks(currentVersion, docsBaseUrl));
+		.replaceAll(/{@(link|linkcode|linkplain|apilink)\s+([^}]+?)}/gi, replaceApiLinks(reflections))
+		.replaceAll(/{@doclink\s+([^}]+?)}/gi, replaceDocLinks(currentVersion, docsBaseUrl));
 }

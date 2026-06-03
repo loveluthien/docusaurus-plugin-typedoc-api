@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 import * as TypeDoc from 'typedoc';
 import { type InlineTagDisplayPart, type JSONOutput, ReflectionKind } from 'typedoc'
 import ts from 'typescript';
@@ -16,7 +16,7 @@ import { migrateToVersion0230 } from './structure/0.23';
 import { getKindSlug, getPackageSlug, joinUrl } from './url';
 
 function shouldEmit(projectRoot: string, tsconfigPath: string) {
-	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+	 
 	const { config, error } = ts.readConfigFile(tsconfigPath, (name) =>
 		fs.readFileSync(name, 'utf8'),
 	);
@@ -110,7 +110,7 @@ export function createReflectionMap(
 ): TSDDeclarationReflectionMap {
 	const map: TSDDeclarationReflectionMap = {};
 
-	// eslint-disable-next-line complexity
+	 
 	items.forEach((item) => {
 		// Add @reference categories to reflection.
 		const referenceCategories: Record<string, { title: string; children: TypeDoc.ReflectionId[] }> = {};
@@ -133,7 +133,7 @@ export function createReflectionMap(
 
 		// Update categories with reference categories.
 		if (!item.categories) {
-			// eslint-disable-next-line no-param-reassign
+			 
 			item.categories = [];
 		}
 		for (const category of Object.values(referenceCategories)) {
@@ -185,7 +185,7 @@ export function addMetadataToReflections(
 	const permalink = `/${joinUrl(urlPrefix, packageSlug)}`;
 
 	if (project.children) {
-		// eslint-disable-next-line no-param-reassign
+		 
 		project.children = project.children.map((child) => {
 			migrateToVersion0230(child);
 
@@ -195,7 +195,7 @@ export function addMetadataToReflections(
 
 			// We need to go another level deeper and only use fragments
 			if (child.kind === ReflectionKind.Namespace && child.children) {
-				// eslint-disable-next-line no-param-reassign
+				 
 				child.children = child.children.map((grandChild) => ({
 					...grandChild,
 					permalink: normalizeUrl([`${childPermalink}#${grandChild.name}`]),
@@ -233,7 +233,7 @@ function mergeReflections(base: TSDDeclarationReflection, next: TSDDeclarationRe
 		});
 
 		// We can remove refs since were merging all reflections into one
-		// eslint-disable-next-line no-param-reassign
+		 
 		base.groups = base.groups.filter((group) => group.title !== 'References');
 	}
 }
@@ -281,13 +281,13 @@ function sourceFileMatchesEntryPoint(
 ): boolean {
 		// Single package
 		if (single) {
-				return !deep ? matchesSinglePackageShallow(sourceFile, entryPoint) : deep;
+				return deep ? deep : matchesSinglePackageShallow(sourceFile, entryPoint);
 		}
 
 		// Multiple packages
-		return !deep 
-				? matchesMultiplePackagesShallow(sourceFile, entryPoint)
-				: sourceFile.startsWith(entryPoint);
+		return deep 
+				? sourceFile.startsWith(entryPoint)
+				: matchesMultiplePackagesShallow(sourceFile, entryPoint);
 }
 
 function modContainsEntryPoint(
@@ -302,7 +302,7 @@ function modContainsEntryPoint(
 	},
 ) {
 	const relModSources = mod.sources ?? [];
-	const relModSourceFile = relModSources.find((sf) => !!sf.fileName)?.fileName ?? '';
+	const relModSourceFile = relModSources.find((sf) => Boolean(sf.fileName))?.fileName ?? '';
 	const relEntryPoint = joinUrl(meta.packagePath, entry.path);
 
 	// Monorepos of 1 package don't have sources, so use the child sources.
@@ -312,9 +312,9 @@ function modContainsEntryPoint(
 		const absEntryPoint = path.normalize(path.join(meta.packageRoot, entry.path));
 		const relEntryPointName = path.basename(relEntryPoint);
 		const entryPointInSourceFiles =
-			!!meta.allSourceFiles[absEntryPoint] ||
-			!!meta.allSourceFiles[relEntryPoint] ||
-			(relEntryPointName.startsWith('index.') && !!meta.allSourceFiles[relEntryPointName]);
+			Boolean(meta.allSourceFiles[absEntryPoint]) ||
+			Boolean(meta.allSourceFiles[relEntryPoint]) ||
+			(relEntryPointName.startsWith('index.') && Boolean(meta.allSourceFiles[relEntryPointName]));
 
 		if (entryPointInSourceFiles) {
 			return sourceFileMatchesEntryPoint(relEntryPoint, relEntryPoint, {
@@ -445,9 +445,9 @@ export function flattenAndGroupPackages(
 						changelogPath,
 					};
 
-					// eslint-disable-next-line no-param-reassign
+					 
 					cfg.packageName = packages[cfg.packagePath].packageName;
-					// eslint-disable-next-line no-param-reassign
+					 
 					cfg.packageVersion = packages[cfg.packagePath].packageVersion;
 				}
 
@@ -462,7 +462,7 @@ export function flattenAndGroupPackages(
 					if (isUsingDeepImports) {
 						mergeReflections(existingEntry.reflection, reflection);
 					} else {
-						// eslint-disable-next-line no-console
+						 
 						console.error(`Entry point ${urlSlug} already defined. How did you get here?`);
 					}
 				} else {

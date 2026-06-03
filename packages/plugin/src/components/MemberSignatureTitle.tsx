@@ -1,4 +1,4 @@
-/* eslint-disable no-nested-ternary */
+ 
 // https://github.com/TypeStrong/typedoc-default-themes/blob/master/src/default/partials/member.signature.title.hbs
 
 import { Fragment } from 'react';

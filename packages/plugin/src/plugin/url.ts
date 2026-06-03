@@ -1,9 +1,9 @@
-import path from 'path';
+import path from 'node:path';
 import { JSONOutput, ReflectionKind } from 'typedoc';
 import type { ResolvedPackageConfig } from '../types';
 
 export function joinUrl(...paths: string[]): string {
-	return path.join(...paths).replace(/\\/g, '/');
+	return path.join(...paths).replaceAll('\\', '/');
 }
 
 export function getKindSlug(decl: JSONOutput.DeclarationReflection): string {
@@ -39,7 +39,7 @@ export function getPackageSlug(
 	const slug = pkgConfig.packageSlug ?? path.basename(pkgConfig.packagePath);
 
 	// bar/baz -> bar-baz
-	const importName = importPath.replace(/\\/g, '-');
+	const importName = importPath.replaceAll('\\', '-');
 
 	if (importName === 'index') {
 		return slug;

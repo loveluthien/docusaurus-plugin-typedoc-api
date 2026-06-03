@@ -18,7 +18,7 @@ export function extractDeclarationFromType(
 	return (type as unknown as { declaration?: TSDDeclarationReflection })?.declaration;
 }
 
-function parens(element: JSX.Element, needsParens: boolean): JSX.Element {
+function parens(element: React.JSX.Element, needsParens: boolean): React.JSX.Element {
 	if (!needsParens) {
 		return element;
 	}
@@ -37,7 +37,7 @@ export interface TypeProps {
 	type?: { type: string; value?: unknown };
 }
 
-// eslint-disable-next-line complexity
+ 
 export function Type({ needsParens = false, type: base }: TypeProps) {
 	const reflections = useReflectionMap();
 
@@ -259,7 +259,7 @@ export function Type({ needsParens = false, type: base }: TypeProps) {
 				);
 			}
 
-			if (decl?.signatures && decl.signatures.length === 1) {
+			if (decl?.signatures?.length === 1) {
 				return <MemberSignatureTitle hideName useArrow sig={decl.signatures[0]} />;
 			}
 

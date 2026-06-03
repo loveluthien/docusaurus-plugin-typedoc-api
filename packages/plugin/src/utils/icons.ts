@@ -1,4 +1,4 @@
-/* eslint-disable no-fallthrough */
+ 
 
 import type { ReflectionKind } from 'typedoc';
 
@@ -42,7 +42,7 @@ export function getKindIcon(kind: ReflectionKind, name: string): string {
 	return icon;
 }
 
-// eslint-disable-next-line complexity
+ 
 export function getKindIconColor(kind: ReflectionKind): string {
 	switch (kind) {
 		// Function
