@@ -18,7 +18,7 @@ export type CommentWithModifiers = Pick<JSONOutput.Comment, 'blockTags' | 'summa
 export function isCommentWithModifiers(
 	comment?: JSONOutput.Comment,
 ): comment is CommentWithModifiers {
-	return Boolean(comment) && Boolean(comment.modifierTags) && comment.modifierTags.length > 0;
+	return comment?.modifierTags != null && comment.modifierTags.length > 0;
 }
 
 interface CommentBadgesProps {
