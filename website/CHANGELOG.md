@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.7.0 - 2026-06-03
+
+#### 🚀 Updates
+
+- Bump Docusaurus to 3.10 ([#3](https://github.com/loveluthien/docusaurus-plugin-typedoc-api/issues/3))
+
+**Note:** Version bump only for package website
+
+
+
+
+
 ## 0.6.0 - 2024-09-08
 
 #### 🚀 Updates

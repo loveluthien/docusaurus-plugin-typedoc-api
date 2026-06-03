@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.6.0 - 2026-06-03
+
+#### 🚀 Updates
+
+- Support Docusaurus==3.10 and packages upgrade ([#3](https://github.com/loveluthien/docusaurus-plugin-typedoc-api/issues/3))
+- Replace pockemon with tsup to resolve vulnerabilities ([#4](https://github.com/loveluthien/docusaurus-plugin-typedoc-api/issues/4))
+
+
+
+
 ## 4.5.0 - 2025-12-16
 
 #### 🚀 Updates
