@@ -157,7 +157,7 @@ export default function typedocApiPlugin(
 
 					// Load info from `package.json`s
 					packageConfigs.forEach((cfg) => {
-						const { packageJson } = loadPackageJsonAndDocs(
+						const { packageJson, changelogPath, readmePath } = loadPackageJsonAndDocs(
 							path.join(options.projectRoot, cfg.packagePath),
 							options.packageJsonName,
 							options.readmeName,
@@ -168,6 +168,17 @@ export default function typedocApiPlugin(
 						cfg.packageName = packageJson.name;
 						 
 						cfg.packageVersion = packageJson.version;
+
+						if (changelogPath) {
+							const destChangelog = path.join(outDir, cfg.packagePath, '_CHANGELOG.md');
+							fs.mkdirSync(path.dirname(destChangelog), { recursive: true });
+							fs.copyFileSync(changelogPath, destChangelog);
+						}
+						if (readmePath) {
+							const destReadme = path.join(outDir, cfg.packagePath, '_readme.md');
+							fs.mkdirSync(path.dirname(destReadme), { recursive: true });
+							fs.copyFileSync(readmePath, destReadme);
+						}
 					});
 
 					await fs.promises.writeFile(
@@ -211,6 +222,7 @@ export default function typedocApiPlugin(
 								metadata.versionPath,
 								options,
 								true,
+								outDir,
 							);
 						}
 
@@ -419,15 +431,14 @@ export default function typedocApiPlugin(
 			// Whitelist the folders that this webpack rule applies to, otherwise we collide with the native
 			// docs/blog plugins. We need to include the specific files only, as in polyrepo mode, the `cfg.packagePath`
 			// can be project root (where the regular docs are too).
-			const include = packageConfigs.flatMap((cfg) => {
-				const list: string[] = [];
+			const include: string[] = [];
+			packageConfigs.forEach((cfg) => {
 				if (readmes) {
-					list.push(path.join(options.projectRoot, cfg.packagePath, options.readmeName));
+					include.push(path.join(options.projectRoot, cfg.packagePath, options.readmeName));
 				}
 				if (changelogs) {
-					list.push(path.join(options.projectRoot, cfg.packagePath, options.changelogName));
+					include.push(path.join(options.projectRoot, cfg.packagePath, options.changelogName));
 				}
-				return list;
 			});
 
 			return {

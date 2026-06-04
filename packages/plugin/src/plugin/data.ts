@@ -401,6 +401,7 @@ export function flattenAndGroupPackages(
 	urlPrefix: string,
 	options: DocusaurusPluginTypeDocApiOptions,
 	versioned: boolean = false,
+	versionDir?: string,
 ): PackageReflectionGroup[] {
 	const isSinglePackage = packageConfigs.length === 1;
 	const modules = extractReflectionModules(project, isSinglePackage);
@@ -430,17 +431,33 @@ export function flattenAndGroupPackages(
 
 				// We have a matching entry point, so store the record
 				if (!packages[cfg.packagePath]) {
-					const { packageJson, readmePath, changelogPath } = loadPackageJsonAndDocs(
-						path.join(options.projectRoot, cfg.packagePath),
-						options.packageJsonName,
-						options.readmeName,
-						options.changelogName,
-					);
+					let readmePath = '';
+					let changelogPath = '';
+					let pkgName = cfg.packageName;
+					let pkgVer = cfg.packageVersion;
+
+					if (versioned && versionDir) {
+						readmePath = path.join(versionDir, cfg.packagePath, '_readme.md');
+						changelogPath = path.join(versionDir, cfg.packagePath, '_CHANGELOG.md');
+						if (!fs.existsSync(readmePath)) readmePath = '';
+						if (!fs.existsSync(changelogPath)) changelogPath = '';
+					} else {
+						const loaded = loadPackageJsonAndDocs(
+							path.join(options.projectRoot, cfg.packagePath),
+							options.packageJsonName,
+							options.readmeName,
+							options.changelogName,
+						);
+						readmePath = loaded.readmePath;
+						changelogPath = loaded.changelogPath;
+						pkgName = loaded.packageJson.name;
+						pkgVer = loaded.packageJson.version;
+					}
 
 					packages[cfg.packagePath] = {
 						entryPoints: [],
-						packageName: (versioned && cfg.packageName) || packageJson.name,
-						packageVersion: (versioned && cfg.packageVersion) || packageJson.version,
+						packageName: (versioned && cfg.packageName) || pkgName,
+						packageVersion: (versioned && cfg.packageVersion) || pkgVer,
 						readmePath,
 						changelogPath,
 					};
