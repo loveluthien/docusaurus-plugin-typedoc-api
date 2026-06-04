@@ -1,4 +1,4 @@
-/* eslint-disable no-param-reassign */
+ 
 
 import { JSONOutput } from 'typedoc';
 
@@ -16,12 +16,12 @@ interface OldDeclarationReflection {
 // https://github.com/milesj/docusaurus-plugin-typedoc-api/pull/50
 export function migrateToVersion0230(reflection: JSONOutput.DeclarationReflection) {
 	if (Array.isArray(reflection.getSignature)) {
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+		 
 		reflection.getSignature = reflection.getSignature[0];
 	}
 
 	if (Array.isArray(reflection.setSignature)) {
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+		 
 		reflection.setSignature = reflection.setSignature[0];
 	}
 

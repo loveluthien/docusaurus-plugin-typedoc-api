@@ -1,14 +1,15 @@
 {
   "extends": "../../tsconfig.options.json",
   "compilerOptions": {
+    "rootDir": "src",
     "jsx": "react-jsx",
     "moduleResolution": "bundler",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "verbatimModuleSyntax": false
   },
   "include": [
-    "src/**/*",
-    "types/**/*"
+    "src/**/*"
   ]
 }

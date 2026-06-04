@@ -51,7 +51,7 @@ export function Comment({ comment, root, hideTags = [] }: CommentProps) {
 
 	return (
 		<div className={`tsd-comment tsd-typography ${root ? 'tsd-comment-root' : ''}`}>
-			{!!comment.summary && (
+			{Boolean(comment.summary) && (
 				<div className="lead">
 					<Markdown content={displayPartsToMarkdown(comment.summary)} />
 				</div>

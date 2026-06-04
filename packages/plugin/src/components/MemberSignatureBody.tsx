@@ -54,7 +54,7 @@ function intoReturnComment(comment?: JSONOutput.Comment): JSONOutput.Comment | u
 
 const HIDE_TAGS = ['@returns', '@param'];
 
-// eslint-disable-next-line complexity
+ 
 export function MemberSignatureBody({ hideSources, sig }: MemberSignatureBodyProps) {
 	const minimal = useMinimalLayout();
 	const showTypes = sig.typeParameters && sig.typeParameters.length > 0;
@@ -113,13 +113,13 @@ export function MemberSignatureBody({ hideSources, sig }: MemberSignatureBodyPro
 													{`${reflectionChild.name}: `}
 													<Type type={reflectionChild.type} />
 													<DefaultValue
-														comment={reflectionChild.comment as unknown as JSONOutput.Comment}
+														comment={reflectionChild.comment}
 														type={reflectionChild.type}
 														value={reflectionChild.defaultValue}
 													/>
 												</h5>
 
-												<Comment comment={reflectionChild.comment as unknown as JSONOutput.Comment} />
+												<Comment comment={reflectionChild.comment} />
 											</li>
 										))}
 									</ul>

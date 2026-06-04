@@ -3,12 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.6.0 - 2026-06-03
+
+#### 💥 Breaking
+
+- Genarated API files are no longer be hidden with a prefix `.-` in `build/api`
+- Add support for version dependent changelog
+
+#### 🚀 Updates
+
+- Support Docusaurus==3.10 and packages upgrade ([#3](https://github.com/loveluthien/docusaurus-plugin-typedoc-api/issues/3))
+- Replace pockemon with tsup to resolve vulnerabilities ([#4](https://github.com/loveluthien/docusaurus-plugin-typedoc-api/issues/4))
+
+**Note:** Version bump only for package docusaurus-plugin-typedoc-api
+
+
+
+
 ## 4.5.0 - 2025-12-16
 
 #### 🚀 Updates
 
 - Support Typedoc==0.28, Typescript==5.9, and Docusaurus==3.9 ([#1](https://github.com/loveluthien/docusaurus-plugin-typedoc-api/issues/1))
 
+**Note:** Version bump only for package docusaurus-plugin-typedoc-api
 
 
 

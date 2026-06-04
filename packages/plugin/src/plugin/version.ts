@@ -1,6 +1,6 @@
 // BASED ON: https://github.com/facebook/docusaurus/blob/main/packages/docusaurus-plugin-content-docs/src/versions.ts
 
-import path from 'path';
+import path from 'node:path';
 import type { PluginOptions as DocusaurusNativePluginOptions } from '@docusaurus/plugin-content-docs';
 import {
 	CURRENT_VERSION_NAME,

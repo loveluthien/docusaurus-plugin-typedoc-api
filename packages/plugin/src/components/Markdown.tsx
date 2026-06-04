@@ -89,7 +89,7 @@ marked.use({
 	],
 });
 
-const TOKEN_TO_TAG: Record<string, keyof JSX.IntrinsicElements> = {
+const TOKEN_TO_TAG: Record<string, keyof React.JSX.IntrinsicElements> = {
 	blockquote: 'blockquote',
 	br: 'br',
 	code: 'pre',
@@ -111,7 +111,7 @@ function convertAstToElements(ast: TokensList): React.ReactNode[] | undefined {
 	const elements: React.ReactNode[] = [];
 	let counter = 0;
 
-	// eslint-disable-next-line complexity
+	 
 	ast.forEach((token) => {
 		// Nested tokens aren't typed for some reason...
 		const children = (token as unknown as { tokens: TokensList }).tokens ?? [];
@@ -156,7 +156,7 @@ function convertAstToElements(ast: TokensList): React.ReactNode[] | undefined {
 				const Comp = token.ordered ? 'ol' : 'ul';
 				elements.push(
 					<Comp key={counter}>
-						{convertAstToElements((token.items as TokensList) ?? children)}
+						{convertAstToElements((token.items) ?? children)}
 					</Comp>,
 				);
 				break;

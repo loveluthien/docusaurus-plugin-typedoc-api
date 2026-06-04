@@ -25,6 +25,9 @@ tmp/
 # Custom
 *.min.js
 *.map
+*.d.ts
+*.d.cts
+*.d.mts
 
 # Configs
 *.tsbuildinfo

@@ -1,6 +1,6 @@
 {
   "name": "@loveluthien/docusaurus-plugin-typedoc-api",
-  "version": "4.5.0",
+  "version": "4.6.0",
   "description": "Docusaurus plugin that provides source code API documentation powered by TypeDoc. ",
   "keywords": [
     "docusaurus",
@@ -17,43 +17,36 @@
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "files": [
-    "assets/**/*",
-    "lib/**/*",
-    "src/**/*",
-    "styles.css"
+    "lib/**/*"
   ],
   "engines": {
     "node": ">=18.12.0"
   },
-  "packemon": {
-    "format": "lib",
-    "platform": "node",
-    "externals": [
-      "@theme/*",
-      "@docusaurus/*",
-      "@vscode/*"
-    ]
-  },
   "peerDependencies": {
-    "@docusaurus/core": "^3.9.2",
-    "@docusaurus/mdx-loader": "^3.9.2",
+    "@docusaurus/core": "^3.10.1",
+    "@docusaurus/mdx-loader": "^3.10.1",
+    "@docusaurus/plugin-content-docs": "^3.10.1",
+    "@docusaurus/theme-common": "^3.10.1",
+    "@docusaurus/types": "^3.10.1",
+    "@docusaurus/utils": "^3.10.1",
     "react": ">=18.0.0",
     "typescript": ">=5.0.0"
   },
   "dependencies": {
-    "@docusaurus/plugin-content-docs": "^3.9.2",
-    "@docusaurus/types": "^3.9.2",
-    "@docusaurus/utils": "^3.9.2",
-    "@vscode/codicons": "^0.0.36",
-    "marked": "^17.0.1",
-    "marked-smartypants": "^1.1.5",
-    "typedoc": "^0.28.15"
+    "@vscode/codicons": "^0.0.45",
+    "marked": "^18.0.4",
+    "marked-smartypants": "^1.1.12",
+    "typedoc": "^0.28.19"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^3.9.2",
-    "@docusaurus/tsconfig": "^3.9.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "^5.9.3"
+    "@docusaurus/module-type-aliases": "^3.10.1",
+    "@docusaurus/plugin-content-docs": "^3.10.1",
+    "@docusaurus/theme-common": "^3.10.1",
+    "@docusaurus/tsconfig": "^3.10.1",
+    "@docusaurus/types": "^3.10.1",
+    "@docusaurus/utils": "^3.10.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "typescript": "^6.0.3"
   }
 }
