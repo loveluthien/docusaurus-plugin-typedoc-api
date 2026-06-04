@@ -10,9 +10,9 @@ package's entry point), so any private, protected, or internal code will not be 
 
 ## Requirements
 
-- `typescript` >= v4
-- `@docusaurus/core` >= v2.0.0
-- `@docusaurus/preset-classic` >= v2.0.0
+- `typescript` >= v5
+- `@docusaurus/core` >= v3.0.0
+- `@docusaurus/preset-classic` >= v3.0.0
 
 ## Examples
 
@@ -21,7 +21,7 @@ package's entry point), so any private, protected, or internal code will not be 
 ## Installation
 
 ```
-yarn add --dev docusaurus-plugin-typedoc-api
+npm install --save-dev docusaurus-plugin-typedoc-api
 ```
 
 Open your `docusaurus.config.js` and make the following changes:
@@ -212,14 +212,14 @@ for this to work correctly.
 To begin, version your docs with the built-in command:
 
 ```shell
-yarn docusaurus docs:version 1.2.3
+npm run docusaurus docs:version 1.2.3
 ```
 
 Once the markdown files are generated, run our versioning command _with the same version used
 previously_:
 
 ```shell
-yarn docusaurus api:version 1.2.3
+npm run docusaurus api:version 1.2.3
 ```
 
 This will create multiple JSON files in the `versioned_docs/version-1.2.3` directory. Be sure to

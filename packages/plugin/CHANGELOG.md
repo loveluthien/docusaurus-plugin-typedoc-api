@@ -5,6 +5,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 4.6.0 - 2026-06-03
 
+#### 🐞 Fixes
+
+- Fixed duplicate `Changelog` title in changelog files. ([#6](https://github.com/loveluthien/docusaurus-plugin-typedoc-api/issues/6))
+
+**Note:** Version bump only for package docusaurus-plugin-typedoc-api
+
+
+
+
+## 4.6.0 - 2026-06-03
+
 #### 💥 Breaking
 
 - Genarated API files are no longer be hidden with a prefix `.-` in `build/api`
