@@ -448,10 +448,8 @@ export function flattenAndGroupPackages(
 							options.readmeName,
 							options.changelogName,
 						);
-						readmePath = loaded.readmePath;
-						changelogPath = loaded.changelogPath;
-						pkgName = loaded.packageJson.name;
-						pkgVer = loaded.packageJson.version;
+						({ readmePath, changelogPath } = loaded);
+						({ name: pkgName, version: pkgVer } = loaded.packageJson);
 					}
 
 					packages[cfg.packagePath] = {
