@@ -172,7 +172,9 @@ export default function typedocApiPlugin(
 						if (changelogPath) {
 							const destChangelog = path.join(outDir, cfg.packagePath, '_CHANGELOG.md');
 							fs.mkdirSync(path.dirname(destChangelog), { recursive: true });
-							fs.copyFileSync(changelogPath, destChangelog);
+							const changelogContent = fs.readFileSync(changelogPath, 'utf8');
+							const changelogWithoutTitle = changelogContent.replace(/^#\s+([^\n]+)/i, '');
+							fs.writeFileSync(destChangelog, changelogWithoutTitle);
 						}
 						if (readmePath) {
 							const destReadme = path.join(outDir, cfg.packagePath, '_readme.md');
