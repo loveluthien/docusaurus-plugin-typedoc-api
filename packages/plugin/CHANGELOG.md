@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.6.1 - 2026-06-04
+
+#### 🐞 Fixes
+
+- Fixed duplicate `Changelog` title in changelog files. ([#6](https://github.com/loveluthien/docusaurus-plugin-typedoc-api/issues/6))
+
+**Note:** Version bump only for package docusaurus-plugin-typedoc-api
+
+
+
+
 ## 4.6.0 - 2026-06-03
 
 #### 💥 Breaking
