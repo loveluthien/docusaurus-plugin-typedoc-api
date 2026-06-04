@@ -8,6 +8,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 #### 💥 Breaking
 
 - Genarated API files are no longer be hidden with a prefix `.-` in `build/api`
+- Add support for version dependent changelog
 
 #### 🚀 Updates
 
