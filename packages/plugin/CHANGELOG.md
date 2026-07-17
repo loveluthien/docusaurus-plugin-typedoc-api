@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.6.2 - 2026-07-17
+
+#### 🚀 Updates
+
+- NPM packages updated. ([#11](https://github.com/loveluthien/docusaurus-plugin-typedoc-api/issues/11))
+
+**Note:** Version bump only for package docusaurus-plugin-typedoc-api
+
+
+
+
 ## 4.6.1 - 2026-06-04
 
 #### 🐞 Fixes
