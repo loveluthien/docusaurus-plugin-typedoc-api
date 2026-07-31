@@ -10,7 +10,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:loveluthien/docusaurus-plugin-typedoc-api.git"
+    "url": "git+https://github.com/loveluthien/docusaurus-plugin-typedoc-api.git"
   },
   "author": "Miles Johnson, Kuan-Chou Hou",
   "license": "MIT",
