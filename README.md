@@ -23,15 +23,15 @@ contribute, you'll need to clone the Boost project relative to this project as a
 # Setup plugin
 git clone git@github.com:milesj/docusaurus-plugin-typedoc-api.git
 cd docusaurus-plugin-typedoc-api
-yarn install
-yarn run pack
+npm install
+npm run pack
 
 # Setup Boost
 cd ..
 git clone git@github.com:milesj/boost.git
 cd boost
-yarn install
-yarn run pack
+npm install
+npm run pack
 ```
 
 After both projects are setup, you can make modifications to this project and then verify the

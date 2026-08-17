@@ -14,6 +14,5 @@ export function Icon({ reflection }: IconProps) {
 
 	const color = getKindIconColor(reflection.kind);
 
-	// eslint-disable-next-line react-perf/jsx-no-new-object-as-prop
 	return <i className={`codicon codicon-${icon}`} style={{ color }} />;
 }

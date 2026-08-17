@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.7.1 - 2026-08-17
+
+#### 🚀 Updates
+
+- NPM packages updated and adopt Typescript 7. ([#13](https://github.com/loveluthien/docusaurus-plugin-typedoc-api/issues/13))
+
+**Note:** Version bump only for package website
+
+
+
+
+
 ## 0.7.0 - 2026-06-03
 
 #### 🚀 Updates
