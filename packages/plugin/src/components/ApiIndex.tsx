@@ -68,7 +68,6 @@ export default function ApiIndex({ options, packages, history }: ApiIndexProps) 
 			<div className="col apiItemCol">
 				{options.banner && (
 					<div className="alert alert--info margin-bottom--md" role="alert">
-						{/* eslint-disable-next-line react/no-danger, react-perf/jsx-no-new-object-as-prop */}
 						<div dangerouslySetInnerHTML={{ __html: options.banner }} />
 					</div>
 				)}

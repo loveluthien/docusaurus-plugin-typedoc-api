@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 // https://github.com/TypeStrong/typedoc-default-themes/blob/master/src/default/partials/member.signatures.hbs
 
 import { useState } from 'react';
@@ -32,8 +30,7 @@ export function MemberSignatures({ inPanel, sigs }: MemberSignaturesProps) {
 							} ${hasMultiple ? 'tsd-pressable' : ''}`}
 							onClick={
 								hasMultiple
-									? // eslint-disable-next-line react-perf/jsx-no-new-function-as-prop
-										() => {
+									? () => {
 											setActiveIndex(i);
 										}
 									: undefined
