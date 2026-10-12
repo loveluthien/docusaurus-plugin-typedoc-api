@@ -10,6 +10,7 @@
     "format": "prettier --write .",
     "lint": "eslint --cache --color --fix packages/plugin/src website/src",
     "type": "tsc --build",
+    "test:braces": "node --test tests/braces.test.cjs",
     "release": "npm run pack && npm run check && lerna-release"
   },
   "devDependencies": {
@@ -23,6 +24,7 @@
     "typescript-eslint": "^8.67.0"
   },
   "overrides": {
+    "braces": "npm:@dieub/braces-depth-guard@3.0.3-pn.3",
     "@docusaurus/core": {
       "tinypool": "^2.1.2"
     },
