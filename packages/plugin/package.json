@@ -1,6 +1,6 @@
 {
   "name": "@loveluthien/docusaurus-plugin-typedoc-api",
-  "version": "4.6.3",
+  "version": "4.6.4",
   "description": "Docusaurus plugin that provides source code API documentation powered by TypeDoc. ",
   "keywords": [
     "docusaurus",
@@ -42,11 +42,9 @@
     "@docusaurus/module-type-aliases": "^3.10.1",
     "@docusaurus/plugin-content-docs": "^3.10.1",
     "@docusaurus/theme-common": "^3.10.1",
-    "@docusaurus/tsconfig": "^3.10.1",
     "@docusaurus/types": "^3.10.1",
     "@docusaurus/utils": "^3.10.1",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8",
     "typescript": "npm:@typescript/typescript6@^6.0.2"
   }
 }

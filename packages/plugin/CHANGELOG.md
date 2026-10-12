@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.6.4 - 2026-10-12
+
+#### 📦 Dependencies
+
+- Update the workspace lockfile and dependency overrides to address security vulnerabilities in `brace-expansion`, `esbuild`, `postcss-selector-parser`, `tinypool`, and `undici`.
+- Remove unused and redundant development dependencies and replace `rimraf` with Node.js built-in file removal.
+
 ## 4.6.3 - 2026-08-17
 
 #### 🚀 Updates
